@@ -3,7 +3,6 @@ function addItem(){
   var input = document.getElementById("newItem").value;
   if(myList.indexOf(input)==-1){
   myList.push(input);
-  }
     console.log(myList.toString());
   var item = document.createElement("li");
   var list  = document.getElementById("listDisplay");
@@ -22,10 +21,16 @@ function addItem(){
   btnClose.appendChild(iconClose);
   item.appendChild(btnClose);
 }
+document.getElementById("newItem").value="";
+}
 function removeParentListItem(){
   var mom = this.parentNode;
   var grandma = mom.parentNode;
   grandma.removeChild(mom);
+  var itemRemove = mom.firstChild.textContent;
+  var itemIndex = myList.indexOf(itemRemove);
+    myList.splice(itemIndex,1);
+  console.log(myList.toString());
 }
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {
