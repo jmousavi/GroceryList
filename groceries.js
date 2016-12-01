@@ -1,4 +1,18 @@
+window.onload = loadCookieList;
 var myList=[];
+function displayItem(x){
+ if(myList.indexOf(x)==-1){
+  myList.push(x);
+}
+}
+function loadCookieList(){
+var name = getCookie("saved");
+arrayCookie = [];
+arrayCookie = name.split(",");
+for(var i = 0; i<arrayCookie.length; i++){
+  displayItem(arrayCookie[i]);
+}
+}
 function addItem(){
   var input = document.getElementById("newItem").value;
   if(myList.indexOf(input)==-1){
@@ -20,6 +34,7 @@ function addItem(){
   btnClose.addEventListener("click", removeParentListItem);
   btnClose.appendChild(iconClose);
   item.appendChild(btnClose);
+  displayItem(input);
 }
 document.getElementById("newItem").value="";
 }
