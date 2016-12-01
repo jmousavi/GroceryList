@@ -1,7 +1,7 @@
 window.onload = loadCookieList;
 var myList=[];
 function displayItem(input){
- if(myList.indexOf(input)==-1){
+ if(myList.indexOf(input)==-1 && input!=""){
   myList.push(input);
     console.log(myList.toString());
   var item = document.createElement("li");
